@@ -20,7 +20,7 @@ var imgActive;
 // Descrivo cosa succede quando viene cliccata la freccia sinistra. Ho usato un if per inserire il caso in cui l'utente si trova a cliccare "indietro" sulla prima foto, per fare in modo che appaia l'ultima foto.
 
 arrowLeft.click(function() {
-  imgActive = $(".active"); //Uso solo la classe .active in quanto è presente anche sui puntini che indicano la selezione e pertanto così facendo posso fare andare di pari passo foto e indicatore della selezione.
+  imgActive = $(".active");
 
     if (firstImg.hasClass('active')) {
       firstImg.removeClass('active');
@@ -43,6 +43,42 @@ arrowRight.click(function() {
       imgActive.removeClass('active');
       imgActive.next().addClass('active');
     };
+});
+
+/***************BONUS**************/
+//Creo delle variabili per definire i 4 pallini
+var firstSelector = $(".nav > .first").css('cursor', 'pointer');;
+firstSelector.next().css('cursor', 'pointer');
+
+var fourthSelector = $(".nav > .last").css('cursor', 'pointer');;
+fourthSelector.prev().css('cursor', 'pointer');
+
+//Funzione click primo pallino
+firstSelector.click(function() {
+  imgActive = $(".active");
+  imgActive.removeClass('active');
+  firstImg.addClass('active');
+});
+
+//Funzione click secondo pallino
+firstSelector.next().click(function() {
+  imgActive = $(".active");
+  imgActive.removeClass('active');
+  firstImg.next().addClass('active');
+});
+
+//Funzione click terzo pallino
+fourthSelector.prev().click(function() {
+  imgActive = $(".active");
+  imgActive.removeClass('active');
+  lastImg.prev().addClass('active');
+});
+
+//Funzione click quarto pallino
+fourthSelector.click(function() {
+  imgActive = $(".active");
+  imgActive.removeClass('active');
+  lastImg.addClass('active');
 });
 
 });
