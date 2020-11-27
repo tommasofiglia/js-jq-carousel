@@ -11,8 +11,8 @@ $(function() {
 
 var arrowLeft = $(".prev");
 var arrowRight = $(".next");
-
-var imgSlider = $()
+var firstImg = $(".first");
+var img = $(".images > img");
 
 
 arrowLeft.click(function() {
@@ -20,7 +20,8 @@ console.log("test");
 });
 
 arrowRight.click(function() {
-console.log("test");
+firstImg.hide();
+firstImg.next().show();
 });
 
 
