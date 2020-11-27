@@ -9,21 +9,40 @@
 
 $(function() {
 
+//Descrivo alcune variabili che mi saranno utili.
 var arrowLeft = $(".prev");
-var arrowRight = $(".next");
+var arrowRight = $(".next > i");
 var firstImg = $(".first");
-var img = $(".images > img");
+var lastImg = $(".last");
+var img = $("img");
+var imgActive;
 
+// Descrivo cosa succede quando viene cliccata la freccia sinistra. Ho usato un if per inserire il caso in cui l'utente si trova a cliccare "indietro" sulla prima foto, per fare in modo che appaia l'ultima foto.
 
 arrowLeft.click(function() {
-console.log("test");
+  imgActive = $(".active");
+
+    if (firstImg.hasClass('active')) {
+      firstImg.removeClass('active');
+      lastImg.addClass('active');
+    } else {
+      imgActive.removeClass('active');
+      imgActive.prev().addClass('active');
+    };
 });
+
+// Descrivo cosa succede quando viene cliccata la freccia destra. Ho usato un if per inserire il caso in cui l'utente si trova a cliccare "avanti" sull'ultima foto, per fare in modo che appaia la prima foto.
 
 arrowRight.click(function() {
-firstImg.hide();
-firstImg.next().show();
+  imgActive = $(".active");
+
+  if (lastImg.hasClass('active')) {
+      lastImg.removeClass('active');
+      firstImg.addClass('active');
+    } else {
+      imgActive.removeClass('active');
+      imgActive.next().addClass('active');
+    };
 });
-
-
 
 });
