@@ -45,7 +45,19 @@ arrowRight.click(function() {
     };
 });
 
-/***************BONUS**************/
+// Faccio in modo tale che usando i tasti della keyboard "freccia destra" (che ha keyCode == 39) e "freccia sinistra" (che ha keyCode == 37) il carosello mostri rispettivamente la foto successiva e quella precedente.
+
+$(document).keydown(function(event) {
+
+  if (event.keyCode == 39) {
+    arrowRight.click();
+  } else if (event.keyCode == 37){
+    arrowLeft.click();
+  }
+  
+});
+
+/***************** BONUS ****************/
 //Creo delle variabili per definire i 4 pallini
 var firstSelector = $(".nav > .first").css('cursor', 'pointer');;
 firstSelector.next().css('cursor', 'pointer');
